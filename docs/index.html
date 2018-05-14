@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Laxer</title>
+
+  <link rel="stylesheet" type="text/css" href="https://davidfmiller.github.io/man/man.css">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="laxer">
+  <meta property="og:description" content="TODO">
+  <meta property="og:email" content="davidfmiller@me.com">
+  <meta property="og:url" content="https://davidfmiller.github.io/laxer">
+  <meta property="fb:admins" content="eldaverino">
+  <meta property="og:image" content="./og-image.png">
+
+  <link rel="mask-icon" href="favicon.svg" color="#FFD200">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+
+  <style type="text/css">
+
+    section div.img {
+      overflow: hidden;
+      width: 500px;
+      height: 300px;
+      margin-bottom: 20px;
+    }
+
+    section div.img span {
+      background-image: url(assets/marketing.jpg);
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+
+</head>
+<body>
+  <div id="man">
+    <h1>laxer</h1>
+    <section>
+
+      <div class="img">
+        <span></span>
+      </div>
+
+      <div class="img">
+        <span></span>
+      </div>
+
+    </section>
+    <hr>
+    <footer>
+      <p>
+        <a href="https://github.com/davidfmiller/laxer">laxer</a>
+        by <a href="https://readmeansrun.com" title="READMEANSRUN">READMEANSRUN</a>
+      </p>
+    </footer>
+  </div>
+  <script src="build/laxer.bundle.js"></script>
+  <!--<script src="index.js"></script>-->
+  <!--<script src="https://davidfmiller.github.io/man/man.js"></script>-->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+      var spans = document.querySelectorAll('section div.img span');
+
+      new window.Laxer({ node: spans[0], factor: 0.25 });
+      new window.Laxer({ node: spans[1], factor: 0.5 });
+
+      new window.Laxer({ node: null, factor: 0.25 });
+
+      window.Man({pre: true});
+    });
+  </script>
+
+</body>
+</html>
+

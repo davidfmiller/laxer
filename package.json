@@ -1,0 +1,32 @@
+{
+  "name": "laxer",
+  "version": "0.0.1",
+  "description": "Scrolly things",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:davidfmiller/laxer.git"
+  },
+  "author": "davidfmiller",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.3.13",
+    "chai": "^4.1.2",
+    "grunt": "^1.0.1",
+    "grunt-contrib-compass": "^1.1.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-uglify": "^3.1.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "mocha": "^4.0.1",
+    "webpack": "^3.10.0"
+  },
+  "bugs": {
+    "url": "https://github.com/davidfmiller/laxer/issues"
+  },
+  "homepage": "https://davidfmiller.github.io/laxer"
+}
