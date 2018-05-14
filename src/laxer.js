@@ -17,12 +17,8 @@
 
   const Laxer = function(config) {
 
-    const
-    node = config.node,
-    factor = config.hasOwnProperty('factor') ? config.factor : 1;
-
-    if (! node) {
-      throw new Error('Invalid laxer node');
+    if (! config) {
+      throw new Error('Invalid laxer config');
     }
 
     const
@@ -33,11 +29,6 @@
       return arg;
     },
     getRect = function(node) {
-
-      node = getElement(node);
-      if (!node) {
-        return { top: 0, left: 0, right: 0, width: 0, height: 0 };
-      }
 
       const
       rect = node.getBoundingClientRect(),
@@ -55,6 +46,17 @@
       return ret;
     };
 
+    const
+    node = getElement(config.node),
+    factor = config.hasOwnProperty('factor') ? parseFloat(config.factor) : 1;
+
+    if (! node) {
+      throw new Error('Invalid laxer node');
+    }
+    if (isNaN(factor)) {
+      throw new Error('Invalid laxer factor');
+    }
+
     let rect = getRect(node);
 
     window.addEventListener('scroll', function() {
@@ -66,10 +68,12 @@
       ratio = 1,
       scale = 1;
 
+      // overlapping top of viewport
       if (y > rect.top && y < rect.bottom) {
         ratio = (y - rect.top) / rect.height;
         scale = (1 + ratio * factor);
       }
+      // overlapping bottom of viewport
       else if (rect.bottom > y + height) {
         ratio = (rect.bottom - (y + height)) / rect.height;
         scale = (1 + ratio * factor);
@@ -83,8 +87,6 @@
     });
   };
 
-  module.exports = {
-    Laxer: Laxer
-  };
+  module.exports =  Laxer;
 
 })();
